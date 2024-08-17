@@ -56,3 +56,5 @@ export const adminPaths = [
 
 
 
+//! Hard coded way
+//* programital way

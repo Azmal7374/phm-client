@@ -15,7 +15,6 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <App />,
-
     children: routeGenerator(adminPaths),
   },
   {

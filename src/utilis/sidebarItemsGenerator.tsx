@@ -3,6 +3,7 @@ import { TSidebarItem, TUserPath } from "../types"
 
 
 export const sidebarItemsGenerator = (items:TUserPath[], role: string) =>{
+   
  const sidebarItems = items.reduce((acc:TSidebarItem[], item) => {
         if (item.path && item.element){
            acc.push({
