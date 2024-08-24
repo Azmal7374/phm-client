@@ -6,9 +6,9 @@ import { monthOptions } from "../../../constants/global";
 import { semesterOptions } from "../../../constants/semeseter";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { academicSemesterSchema } from "../../../schema/academicmanagementSchema";
-import { useAddAcademicSemestersMutation } from "../../../redux/features/admin/academicManagement.api";
 import { toast } from "sonner";
 import { TResponse } from "../../../types/global";
+import { useAddAcademicSemesterMutation } from "../../../redux/features/admin/academicManagement.api";
 
 
 const currentYear = new Date().getFullYear();
@@ -18,7 +18,7 @@ const yearOptions = [0, 1, 2, 3, 4].map((number) => ({
 }));
 
 const CreateAcademicSemeter = () => {
-    const [addAcademicSemeter] = useAddAcademicSemestersMutation()
+    const [addAcademicSemeter] = useAddAcademicSemesterMutation()
   const onSubmit: SubmitHandler<FieldValues> = async(data) => {
     const toastId = toast.loading("Creating....")
     const name = semesterOptions[Number(data.name) - 1]?.label;
