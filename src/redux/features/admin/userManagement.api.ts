@@ -1,12 +1,12 @@
-import { TQueryParam, TResponseRedux, TStudent } from '../../../types';
+import { TQueryParam, TResponseRedux} from '../../../types';
+import { TStudent } from '../../../types/userManagement.type';
 
 import { baseApi } from '../../api/baseApi';
-
 const userManagementApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAllStudents: builder.query({
       query: (args) => {
-        // console.log(args);
+        console.log(args);
         const params = new URLSearchParams();
 
         if (args) {
@@ -28,14 +28,6 @@ const userManagementApi = baseApi.injectEndpoints({
         };
       },
     }),
-    addStudent: builder.mutation({
-      query: (data) => ({
-        url: '/users/create-student',
-        method: 'POST',
-        body: data,
-      }),
-    }),
-
     getAllFaculties: builder.query({
       query: (args) => {
         console.log(args);
@@ -60,7 +52,13 @@ const userManagementApi = baseApi.injectEndpoints({
         };
       },
     }),
-     
+    addStudent: builder.mutation({
+      query: (data) => ({
+        url: '/users/create-student',
+        method: 'POST',
+        body: data,
+      }),
+    }),
     changePassword: builder.mutation({
       query: (data) => ({
         url: '/auth/change-password',
@@ -71,8 +69,9 @@ const userManagementApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useAddStudentMutation, useGetAllStudentsQuery,
+export const {
+  useAddStudentMutation,
+  useGetAllStudentsQuery,
   useGetAllFacultiesQuery,
   useChangePasswordMutation,
- } =
-  userManagementApi;
+} = userManagementApi;
